@@ -7,8 +7,8 @@ Laravel, con su potencia y popularidad, facilita el desarrollo ágil de aplicaci
 ## Vulnerabilidades de seguridad más frecuentes en Laravel
 
 1. [Inyección SQL (SQLi)](./doc/1.inyeccion-sql.md)
-2. 
-3. 
+2. [Cross-Site Scripting (XSS)](./doc/2.cross-site-scripting.md)
+3. [Fallos de validación de entrada](./doc/3.fallos-validacion-de-entrada.md)
 4. 
 5. 
 6. 
