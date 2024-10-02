@@ -16,13 +16,10 @@ class SecurityHeadersMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $response = $next($request);
-
-        $response->headers->set('Content-Security-Policy', "default-src 'self';".
-            "script-src 'nonce-".Vite::cspNonce()."';".
-            "style-src 'nonce-".Vite::cspNonce()."';"
-        );
-
-        return $response;
+        Vite::useCspNonce();
+ 
+        return $next($request)->withHeaders([
+            'Content-Security-Policy' => "script-src 'nonce-".Vite::cspNonce()."'",
+        ]);
     }
 }
