@@ -19,8 +19,8 @@ class SecurityHeadersMiddleware
         $response = $next($request);
 
         $response->headers->set('Content-Security-Policy', "default-src 'self';".
-            "script-src 'nonce-".Vite::cspNonce()."'".
-            "style-src 'nonce-".Vite::cspNonce()."'"
+            "script-src 'nonce-".Vite::cspNonce()."';".
+            "style-src 'nonce-".Vite::cspNonce()."';"
         );
 
         return $response;
