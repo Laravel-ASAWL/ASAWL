@@ -20,9 +20,7 @@ class SecurityHeadersMiddleware
 
         $response->headers->set('Content-Security-Policy', "default-src 'self';".
             "script-src 'nonce-".Vite::cspNonce()."'".
-            "style-src 'self' 'unsafe-inline' https://fonts.bunny.net;".
-            "img-src 'self' https://laravel.com https://flowbite.com;".
-            "font-src 'self' https://fonts.bunny.net;"
+            "style-src 'nonce-".Vite::cspNonce()."'"
         );
 
         return $response;
