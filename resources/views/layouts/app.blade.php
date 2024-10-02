@@ -15,6 +15,15 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    @production
+    <style>
+        {!! Vite::content('resources/css/app.css') !!}
+    </style>
+    <script>
+        {!! Vite::content('resources/js/app.js') !!}
+    </script>
+    @endproduction
 </head>
 <body>
     <div id="app">
