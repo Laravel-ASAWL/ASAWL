@@ -20,7 +20,7 @@ class SecurityHeadersMiddleware
  
         return $next($request)->withHeaders([
             'Content-Security-Policy' => "script-src 'self' 'nonce-".Vite::cspNonce()."';".
-            "style-src 'self' 'nonce-".Vite::cspNonce()."';",
+            "style-src 'self' 'nonce-".Vite::cspNonce()."' 'unsafe-inline' https://fonts.bunny.net;",
         ]);
     }
 }
