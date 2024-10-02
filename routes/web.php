@@ -14,6 +14,6 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])
     ->name('dashboard')
-    ->middleware(['auth', 'verify']);
+    ->middleware(['auth', 'signed']);
 
 //********************************************//
