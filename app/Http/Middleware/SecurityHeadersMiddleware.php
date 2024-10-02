@@ -19,7 +19,8 @@ class SecurityHeadersMiddleware
         Vite::useCspNonce();
  
         return $next($request)->withHeaders([
-            'Content-Security-Policy' => "script-src 'self' 'nonce-".Vite::cspNonce()."'",
+            'Content-Security-Policy' => "script-src 'self' 'nonce-".Vite::cspNonce()."'".
+            "style-src 'self' 'nonce-".Vite::cspNonce()."'",
         ]);
     }
 }
