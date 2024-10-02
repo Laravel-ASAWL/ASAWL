@@ -18,7 +18,7 @@ class SecurityHeadersMiddleware
         $response = $next($request);
 
         $response->headers->set('Content-Security-Policy', "default-src 'self';".
-            "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com/;".
+            "script-src 'self' 'nonce-".Vite::cspNonce()." 'unsafe-inline' https://cdnjs.cloudflare.com/;".
             "style-src 'self' 'unsafe-inline' https://fonts.bunny.net;".
             "img-src 'self' https://laravel.com https://flowbite.com;".
             "font-src 'self' https://fonts.bunny.net;"
