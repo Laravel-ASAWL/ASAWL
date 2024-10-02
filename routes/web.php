@@ -14,8 +14,6 @@ Route::get('/', function () {
 //********************************************//
 
 Auth::routes();
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])
-    ->middleware(['auth'])->name('dashboard');
 
 Route::get('/email/verify', function () {
     return view('auth.verify');
@@ -29,8 +27,11 @@ Route::post('/email/verification-notification', function (Request $r) {
 
 Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $r) {
     $r->fulfill();
-
+    
     return redirect('/dashboard');
 })->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])
+    ->middleware(['auth', 'verified'])->name('dashboard');
 
 //********************************************//
