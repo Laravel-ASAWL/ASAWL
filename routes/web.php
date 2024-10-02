@@ -15,7 +15,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])
-    ->middleware(['auth', 'signed'])->name('dashboard');
+    ->middleware(['auth'])->name('dashboard');
 
 Route::get('/email/verify', function () {
     return view('auth.verify');
