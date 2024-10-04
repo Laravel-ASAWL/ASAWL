@@ -14,7 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         // Implementar el middleware de seguridad
         $middleware->append(SecurityHeadersMiddleware::class);
-        
+
         // Excluir validación CSRF para las rutas
         $middleware->validateCsrfTokens(except: [
             'stripe/*',

@@ -17,10 +17,9 @@ class SecurityHeadersMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         //Vite::useCspNonce();
- 
+
         return $next($request)->withHeaders([
-            'Content-Security-Policy' =>
-                "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;".
+            'Content-Security-Policy' => "script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com;".
                 "style-src 'self' 'unsafe-inline' https://fonts.bunny.net https://cdnjs.cloudflare.com;",
         ]);
     }
