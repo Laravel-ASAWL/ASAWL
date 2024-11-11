@@ -25,9 +25,11 @@ Los fallos de validación de entrada suelen ocurrir debido a:
 
 ## Mitigación de fallos de validación de entrada
 
-Para aplicar la validación de entrada en Laravel se lo puede hacer mediante los controladores ([ver documentación oficial de Laravel de la validación de entradas](https://laravel.com/docs/11.x/validation)) o los Form Request ([ver documentación oficial de Laravel de validación con Form Request](https://laravel.com/docs/11.x/validation#form-request-validation)):
+Para aplicar la validación de entrada en Laravel se lo puede hacer mediante los controladores ([ver documentación oficial de Laravel Validation](https://laravel.com/docs/11.x/validation)) o los Form Request ([ver documentación oficial de Laravel Validation - Form Request Validation](https://laravel.com/docs/11.x/validation#form-request-validation)):
 
-- Validación en controladores. – Se puede validar la entrada directamente en los controladores utilizando el método validate() del objeto Request ([ver archivo de definición del Controlador UserController](./app/Http/Controllers/UserController.php)):
+### Validación en controladores
+
+Se puede validar la entrada directamente en los controladores utilizando el método validate() del objeto Request ([ver archivo de definición del Controlador UserController](./app/Http/Controllers/UserController.php)):
 
 ```php
 
@@ -59,7 +61,9 @@ class UserController extends Controller
 
 En el código anterior, se realiza la validación de: `name` obligatorio, de tipo cadena y con una longitud máxima de 255 caracteres. `email` obligatorio, con un formato válido y único en la tabla `users`, y `password` obligatorio, al menos 8 caracteres y coincidir con el campo de confirmación ([ver documentación oficial de Laravel de la validación de entradas](https://laravel.com/docs/11.x/validation)).
 
-- Validación en Form Requests.- Para una mejor organización y reutilización de la lógica de validación, se debe crear clases Form Request:
+### Validación en formularios
+
+Para una mejor organización y reutilización de la lógica de validación, se debe crear clases Form Request:
 
 ```bash
 
@@ -120,7 +124,9 @@ class UserController extends Controller
 
 ```
 
-- Personalización de mensajes de error. - Se recomienda personalizar los mensajes de error de validación en el método `messages()` ([ver archivo de definición del Form Request StoreUserRequest](./app/Http/Requests/StoreUserRequest.php)):
+### Personalización de mensajes de error
+
+Se recomienda personalizar los mensajes de error de validación en el método `messages()` ([ver archivo de definición del Form Request StoreUserRequest](./app/Http/Requests/StoreUserRequest.php)):
 
 ```php
 

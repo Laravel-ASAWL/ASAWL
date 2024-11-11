@@ -36,10 +36,13 @@ Laravel simplifica enormemente la implementación de autenticación y autorizaci
 
 Laravel facilita la autenticación mediante el uso de varios métodos:
 
-- Uso de Scaffolding: Laravel proporciona un comando para generar rápidamente todo el código necesario para la autenticación básica, sin necesidad de instalar otro paquete externo ([ver documentación oficial de Laravel UI en Github](https://github.com/laravel/ui)):
+#### Uso de Scaffolding
+
+Laravel proporciona un comando para generar rápidamente todo el código necesario para la autenticación básica, sin necesidad de instalar otro paquete externo ([ver documentación oficial de Laravel UI](https://github.com/laravel/ui)):
 
 ```bash
 
+# Instalar Laravel UI
 composer require laravel/ui
 php artisan ui:auth
 
@@ -47,7 +50,9 @@ php artisan ui:auth
 
 los comandos anteriores instalan el paquete `laravel/ui` y crea: vistas, controladores y rutas; para el registro, inicio de sesión, recuperación de contraseña, verificación de correos electrónicos, etc.
 
-- Middleware auth: Se puede proteger rutas específicas utilizando el middleware auth ([ver documentación oficial de Laravel sobre los Middleware](https://laravel.com/docs/11.x/middleware)):
+#### Middleware Auth
+
+Se puede proteger rutas específicas utilizando el Middleware Auth ([ver documentación oficial de Laravel Middleware](https://laravel.com/docs/11.x/middleware)):
 
 ```php
 
@@ -63,7 +68,9 @@ Route::get('/dashboard', function(){
 
 Esto asegurará que solo los usuarios autenticados puedan acceder a la ruta /dashboard.
 
-- Uso de funciones para validar la autenticación ([ver documentación oficial de Laravel sobre la Autenticación](https://laravel.com/docs/11.x/authentication)):
+#### Función Auth
+
+Uso de funciones para validar la autenticación ([ver documentación oficial de Laravel Autenticación](https://laravel.com/docs/11.x/authentication)):
 
 ```php
 
@@ -90,7 +97,9 @@ if(Auth::check()) {
 
 Laravel ofrece dos mecanismos principales para la autorización:
 
-- Gates: Son funciones simples que determinan si un usuario puede realizar una acción específica ([ver documentación oficial de Laravel sobre los Gates](https://laravel.com/docs/11.x/authorization#gates)).
+#### Gates
+
+Son funciones simples que determinan si un usuario puede realizar una acción específica ([ver documentación oficial de Laravel Authorization - Gates](https://laravel.com/docs/11.x/authorization#gates)).
 
 ```php
 
@@ -108,7 +117,9 @@ public function boot(): void
 
 ```
 
-- Policies: Son clases que agrupan lógicamente las autorizaciones relacionadas con un modelo particular ([ver documentación oficial de Laravel sobre los Policies](https://laravel.com/docs/11.x/authorization#creating-policies)).
+#### Policies
+
+Son clases que agrupan lógicamente las autorizaciones relacionadas con un modelo particular ([ver documentación oficial de Laravel Authorization - Creating Policies](https://laravel.com/docs/11.x/authorization#creating-policies)).
 
 ```bash
 

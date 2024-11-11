@@ -6,23 +6,21 @@ Laravel, con su potencia y popularidad, facilita el desarrollo ágil de aplicaci
 
 ## Vulnerabilidades de seguridad más frecuentes en Laravel
 
-1. [Inyección SQL (SQLi)](./docs/1.inyeccion-sql.md)
-2. [Cross-Site Scripting (XSS)](./docs/2.cross-site-scripting.md)
-3. [Fallos de validación de entrada](./docs/3.fallos-validacion-de-entrada.md)
-4. [Autenticación y autorización insegura](./docs/4.autenticacion-autorizacion-insegura.md)
-5. [Cross-Site Request Forgery (CSRF)](./docs/5.cross-site-request-forgery.md)
-6.
-7.
-8.
-9.
-10.
-
-# Autenticación y autorización insegura
+1. [Inyección SQL (SQLi)](./docs/inyeccion-sql.md)
+2. [Cross-Site Scripting (XSS)](./docs/cross-site-scripting.md)
+3. [Fallos de validación de entrada](./docs/fallos-validacion-de-entrada.md)
+4. [Autenticación y autorización insegura](./docs/autenticacion-autorizacion-insegura.md)
+5. [Cross-Site Request Forgery (CSRF)](./docs/cross-site-request-forgery.md)
+6. [Exposición de datos sensibles](./docs/explotacion-datos-sensibles.md)
+7. [Configuración de Seguridad Incorrecta](./docs/configuracion-seguridad-incorecta.md)
+8. [Diseño inseguro](./docs/diseno-inseguro.md)
+9. [Componentes vulnerables y desactualizado](./docs/componentes-vulnerables-desactualizados.md)
+10. [Registro y monitoreo insuficiente](./docs/registro-monitoreo-insuficiente.md)
 
 ## Bootcamp de seguridad con ASAWL
 
-- [ASAWL Bootcamp](https://github.com/Laravel-ASAWL/ASAWL-Bootcamp)
+- [ASAWL Bootcamp (En construcción)](https://github.com/Laravel-ASAWL/ASAWL-Bootcamp)
 
 ## Desarrollo de aplicacion web con ASAWL
 
-- [App de Ejemplo](https://github.com/Laravel-ASAWL/app-ejemplo)
+- [App de Ejemplo (En construcción)](https://github.com/Laravel-ASAWL/app-ejemplo)

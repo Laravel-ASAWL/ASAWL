@@ -28,13 +28,13 @@ Un ataque CSRF generalmente ocurre de la siguiente manera:
 
 Laravel proporciona mecanismos integrados para proteger la aplicación contra ataques CSRF ([]()):
 
-- Middleware VerifyCsrfToken
+### Middleware VerifyCsrfToken
 
-Laravel incluye el middleware VerifyCsrfToken por defecto, que verifica automáticamente la presencia de un token CSRF válido en cada solicitud POST, PUT, PATCH o DELETE. Este token se genera automáticamente y se incluye en todos los formularios de la aplicación web.
+Laravel incluye el middleware VerifyCsrfToken por defecto, que verifica automáticamente la presencia de un token CSRF válido en cada solicitud POST, PUT, PATCH o DELETE. Este token se genera automáticamente y se incluye en todos los formularios de la aplicación web ([ver documentación oficial de Laravel CSRF Protection](https://laravel.com/docs/11.x/csrf)).
 
-- Directiva @csrf en Blade
+### Directiva @csrf en Blade
 
-En las vistas Blade, se utiliza la directiva @csrf dentro de los formularios para generar el campo oculto con el token CSRF:
+En las vistas Blade, se utiliza la directiva @csrf dentro de los formularios para generar el campo oculto con el token CSRF ([ver documentación oficial de Laravel CSRF Protection](https://laravel.com/docs/11.x/csrf#preventing-csrf-requests)):
 
 ```php
 
@@ -47,7 +47,7 @@ En las vistas Blade, se utiliza la directiva @csrf dentro de los formularios par
 
 ```
 
-- Validación manual del token CSRF
+### Validación manual del token CSRF
 
 Si se necesita validar el token CSRF manualmente (por ejemplo, en una solicitud AJAX), se puede utilizar el método $request->validate() o el facade Validator:
 
@@ -65,7 +65,7 @@ Route::post('/profile', function(Request $request){
 
 ```
 
-- Exclusión de rutas del middleware CSRF
+### Exclusión de rutas del middleware CSRF
 
 En algunos casos, es posible excluir ciertas rutas de la protección CSRF (por ejemplo, para Webhooks o APIs externas), registrando la exclusión de los patrones de ruta en el configuración de los middleware de Laravel ([ver archivo de configuración de Laravel](./bootstrap/app.php))
 

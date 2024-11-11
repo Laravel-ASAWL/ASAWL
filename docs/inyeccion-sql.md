@@ -7,6 +7,7 @@ SQLi o inyección SQL, es un tipo de ataque en el que un atacante inserta códig
 ## Impacto del SQLi
 
 Los ataques SQLi pueden permitir al atacante:
+
 - Leer datos confidenciales, como: números de tarjetas de crédito, contraseñas, información personal.
 - Modificar o eliminar datos, como: alterar el contenido de la base de datos o borrar información crítica.
 - Ejecutar comandos del sistema, como: tomar el control del servidor de la base de datos o del sistema operativo subyacente.
@@ -58,7 +59,9 @@ $user = DB::select("SELECT email, password FROM users WHERE email = '$request->e
 
 La mitigación de la inyección SQL en Laravel se la realiza mediante:
 
-1. Validación de Entradas: Validar rigurosamente todas las entradas del usuario para asegurar que cumplan con los formatos y tipos de datos esperados. Laravel ofrece una variedad de reglas de validación ([ver la documentación oficial de Laravel en la validación de entradas](https://laravel.com/docs/11.x/validation)).
+### Validación de Entradas
+
+Validar rigurosamente todas las entradas del usuario para asegurar que cumplan con los formatos y tipos de datos esperados. Laravel ofrece una variedad de reglas de validación ([ver la documentación oficial de Laravel Validation](https://laravel.com/docs/11.x/validation)).
 
 ```php
 
@@ -70,27 +73,29 @@ $validated = $request->validate([
 
 ```
 
-2. Sanitización de Entradas: Si se necesita incluir entradas del usuario directamente en consultas SQL (aunque no es recomendable), se debe utilizar las funciones de escape de Laravel para sanitizar los datos y evitar que se interpreten como código SQL ([ver documentación oficial de Laravel en la sanitización de entradas mediante la función e()](https://laravel.com/docs/11.x/strings#method-e)).
+### Sanitización de Entradas
+
+Si se necesita incluir entradas del usuario directamente en consultas SQL (aunque no es recomendable), se debe utilizar las funciones de escape de Laravel para sanitizar los datos y evitar que se interpreten como código SQL ([ver documentación oficial de Laravel Strings - Method e()](https://laravel.com/docs/11.x/strings#method-e)).
 
 ```php
 
-// Sanitización de entradas mediante e()
+// Sanitización de entradas mediante la función e()
 $email = e($validated['email']);
 $password = e($validated['password']);
 
 ```
 
-Adicional se puede utilizar también trim() para eliminar espacios en blanco ([ver documentación oficial de PHP en la sanitización de entradas mediante la función trim()](https://www.php.net/manual/en/function.trim.php)).
+Se puede utilizar la función trim() para eliminar espacios en blanco ([ver documentación oficial de PHP Function trim()](https://www.php.net/manual/en/function.trim.php)).
 
 ```php
 
-// Sanitización de entradas mediante trim()
+// Sanitización de entradas mediante la función trim()
 $email = trim(e($validated['email']));
 $password = trim(e($validated['password']));
 
 ```
 
-Y también se puede utilizar strip_tags() para eliminar tags HTML ([ver documentación oficial de PHP en la sanitización de entradas mediante la función strip_tags()](https://www.php.net/manual/es/function.strip-tags.php)).
+Y adicional se puede utilizar la función strip_tags() para eliminar tags HTML ([ver documentación oficial de PHP Function strip_tags()](https://www.php.net/manual/es/function.strip-tags.php)).
 
 ```php
 
@@ -100,7 +105,9 @@ $password = strip_tags(trim(e($validated['password'])));
 
 ```
 
-3. Uso de Eloquent ORM: Utilizar el ORM de Laravel como constructor para parametrizar las consultas, Eloquent ayuda a evitar que las entradas maliciosas se interpreten como código SQL ([ver documentación oficial de Laravel en el uso de Eloquent ORM](https://laravel.com/docs/11.x/eloquent)).
+### Uso de Eloquent
+
+se debe utilizar Eloquent, el ORM de Laravel como constructor para parametrizar las consultas, Eloquent ayuda a evitar que las entradas maliciosas se interpreten como código SQL ([ver documentación oficial de Laravel Eloquent](https://laravel.com/docs/11.x/eloquent)).
 
 ```php
 
@@ -108,7 +115,8 @@ $password = strip_tags(trim(e($validated['password'])));
 $user = User::where('email', $email)->first();
 
 ```
-**Consultas preparadas (Query Builder):** Si necesitas más flexibilidad que Eloquent ORM, usa el Query Builder de Laravel, que también escapa los parámetros de forma segura ([ver documentación oficial de Laravel en el uso de Query Builder](https://laravel.com/docs/11.x/queries)).
+
+Si necesitas más flexibilidad que Eloquent, usa el Query Builder de Laravel, que también escapa los parámetros de forma segura ([ver documentación oficial de Laravel Queries](https://laravel.com/docs/11.x/queries)).
 
 ```php
 
@@ -117,7 +125,7 @@ $user = DB::table('users')->where('email', $email)->get();
 
 ```
 
-**Consultas parametrizadas:** Si debes construir consultas SQL dinámicas, utiliza parámetros con nombre o marcadores de posición (?) para evitar que el código malicioso se interprete como parte de la consulta, estas consultas se denominan consultas parametrizadas ([ver documentación oficial de Laravel en el uso de consultas parametrizadas](https://laravel.com/docs/11.x/database#running-a-select-query)).
+Si debes construir consultas SQL dinámicas, utiliza parámetros con nombre o marcadores de posición (?) para evitar que el código malicioso se interprete como parte de la consulta, estas consultas se denominan consultas parametrizadas ([ver documentación oficial de Laravel Database](https://laravel.com/docs/11.x/database#running-a-select-query)).
 
 ```php
 
@@ -142,7 +150,7 @@ public function login(Request $request)
     $email = strip_tags(trim(e($validated['email'])));
     $password = strip_tags(trim(e($validated['password'])));
 
-    // Uso de Eloquent ORM
+    // Uso de Eloquent
     $user = User::where('email', $email)->first();
 
     ...

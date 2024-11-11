@@ -26,13 +26,13 @@ Existen tres tipos principales de XSS:
 
 Laravel proporciona algunos métodos fundamentales para mitigar el XSS, el primero en la entrada de la información, el segundo en la salida de información y el tercero en la utilización de la protección Content-Security-Policy (CSP). A continuación, se detalla los tres procesos mediante ejemplos:
 
-1. El registro de datos en el controlador:
+### El registro de datos en el controlador
 
-- Validación de entradas de datos del usuario ([ver documentación oficial de Laravel en la validación de entradas](https://laravel.com/docs/11.x/validation)).
-- Sanitización de variables de información mediante la function e() ([ver documentación oficial de Laravel en la sanitización de entradas mediante la función e()](https://laravel.com/docs/11.x/strings#method-e)).
-- Sanitización de variables de información mediante la function trim() ([ver documentación oficial de PHP en la sanitización de entradas mediante la función trim()](https://www.php.net/manual/en/function.trim.php)).
-- Sanitización de variables de información mediante la function e() ([ver documentación oficial de PHP en la sanitización de entradas mediante la función strip_tags()](https://www.php.net/manual/es/function.strip-tags.php)), y.
-- Uso de Eloquent ORM en la creación de registros ([ver documentación oficial de Laravel en el uso de Eloquent ORM](https://laravel.com/docs/11.x/eloquent)).
+- Validación de entradas de datos del usuario ([ver documentación oficial de Laravel Validation](https://laravel.com/docs/11.x/validation)).
+- Sanitización de variables de información mediante la function e() ([ver documentación oficial de Laravel Strings - Method e()](https://laravel.com/docs/11.x/strings#method-e)).
+- Sanitización de variables de información mediante la function trim() ([ver documentación oficial de PHP Function trim()](https://www.php.net/manual/en/function.trim.php)).
+- Sanitización de variables de información mediante la function e() ([ver documentación oficial de PHP Function strip_tags()](https://www.php.net/manual/es/function.strip-tags.php)), y.
+- Uso de Eloquent en la creación de registros ([ver documentación oficial de Laravel Eloquent](https://laravel.com/docs/11.x/eloquent)).
 
 ```php
 
@@ -51,13 +51,14 @@ Comment::create([
 
 ```
 
-2. Mostrar los datos en la vista:
+### Mostrar los datos en la vista
 
-- Utilización de la función e() para sanitizar información antes de mostrarla ([ver documentación oficial de Laravel en la sanitización de entradas mediante la función e()](https://laravel.com/docs/11.x/strings#method-e)), y.
-- Utilización de directivas {{ $variable }} para mostrar los datos en la vista ([ver documentación oficial de Laravel en la directiva {{ }}](https://laravel.com/docs/11.x/blade#displaying-data)).
+- Utilización de la función e() para sanitizar información antes de mostrarla ([ver documentación oficial de Laravel Strings - Method e()](https://laravel.com/docs/11.x/strings#method-e)), y.
+- Utilización de directivas {{ $variable }} para mostrar los datos en la vista ([ver documentación oficial de Laravel Blade - Displaying Data](https://laravel.com/docs/11.x/blade#displaying-data)).
 
 ```php
 
+// Mostrar datos sanitizados
 @foreach ($comments as $comment)
 <article class="...">
     <footer>...</footer>
@@ -67,12 +68,13 @@ Comment::create([
 
 ```
 
-3. Creación de un Midlleware para proteger las cabeceras HTTP mediante Content-Security-Policy (CSP):
+### Creación de un Midlleware para proteger las cabeceras HTTP mediante Content-Security-Policy (CSP):
 
-- Creación de un middleware de seguridad ([ver documentación oficial de Laravel sobre los Middleware](https://laravel.com/docs/11.x/middleware)).
+- Creación de un middleware de seguridad ([ver documentación oficial de Laravel Middleware](https://laravel.com/docs/11.x/middleware)).
 
 ```bash
 
+# Creación del middleware de seguridad
 php artisan make:middleware SecurityHeadersMiddleware
 
 ```
@@ -126,9 +128,9 @@ use App\Http\Middleware\SecurityHeadersMiddleware;
 
 ```
 
-### Detalle de las cabeceras HTTP seguras con Content-Security-Policy
+#### Detalle de las cabeceras HTTP seguras con Content-Security-Policy
 
-Directivas más utilizadas:
+**Directivas más utilizadas**
 
 - **default-src**.- La directiva default-src es una directiva fundamental que actúa como un comodín o configuración por defecto para controlar la carga de varios tipos de recursos en una página web, a menos que se describan directivas más específicas para esos recursos.
 - **script-src**.- La directiva script-src es esencial para controlar que scripts se pueden ejecutar en la aplicación web. Define los orígenes permitidos desde los cuales se pueden cargar y ejecutar scripts,
@@ -136,4 +138,4 @@ Directivas más utilizadas:
 - **img-src**.- La directiva img-src controla que imágenes se pueden cargar en la aplicación web.
 - **font-src**.- La directiva font-src controla que fuentes tipográficas se pueden cargar y aplicar en la aplicación web.
 
-Existe un listado completo de las directivas que se pueden configurar, las cuales se puede consultar en el sitio web de Mozilla en inglés ([ver documentación oficial de Mozilla sobre Content-Security-Policy](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Content-Security-Policy)).
+Existe un listado completo de las directivas que se pueden configurar, las cuales se puede consultar en el sitio web de Mozilla en inglés ([ver documentación oficial de Mozilla HTTP Headers Content Security Policy](https://developer.mozilla.org/es/docs/Web/HTTP/Headers/Content-Security-Policy)).
