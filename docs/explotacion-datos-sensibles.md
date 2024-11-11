@@ -69,23 +69,23 @@ if (Hash::check($password, $user->password)) {
 
 ### Validación y sanitización de entrada
 
-Validar y sanitizar todas las entradas del usuario para prevenir ataques que podrían llevar a la exposición de datos sensibles ([ver documentacion de ASAWL - Fallos de validación de entrada](./3.fallos-validacion-de-entrada.md)).
+Validar y sanitizar todas las entradas del usuario para prevenir ataques que podrían llevar a la exposición de datos sensibles ([ver documentacion de ASAWL - Fallos de validación de entrada](./fallos-validacion-de-entrada.md)).
 
 ### Control de acceso estricto
 
-Implementar autenticación y autorización robustas para asegurarte de que solo los usuarios autorizados puedan acceder a datos sensibles. Utilizar roles y permisos para restringir el acceso a funcionalidades y datos específicos ([ver documentacion de ASAWL - Autenticación y autorización insegura](./4.autenticacion-autorizacion-insegura.md)).
+Implementar autenticación y autorización robustas para asegurarte de que solo los usuarios autorizados puedan acceder a datos sensibles. Utilizar roles y permisos para restringir el acceso a funcionalidades y datos específicos ([ver documentacion de ASAWL - Autenticación y autorización insegura](./autenticacion-autorizacion-insegura.md)).
 
 ### Gestión de errores segura
 
-Configurar la aplicación para que no muestre información detallada sobre errores en producción. Esto evitará que los atacantes obtengan información valiosa sobre la estructura de la aplicación y posibles vulnerabilidades ([ver documentación de ASAWL - Configuración de seguridad incorrecta](./7.configuracion-seguridad-incorecta.md)).
+Configurar la aplicación para que no muestre información detallada sobre errores en producción. Esto evitará que los atacantes obtengan información valiosa sobre la estructura de la aplicación y posibles vulnerabilidades ([ver documentación de ASAWL - Configuración de seguridad incorrecta](./configuracion-seguridad-incorecta.md)).
 
 ### Actualizaciones de seguridad
 
-Mantener Laravel y todas sus dependencias actualizadas para tener las últimas correcciones de seguridad y proteger la aplicación contra vulnerabilidades conocidas ([ver documentación de ASAWL - Componentes vulnerables y desactualizados]()).
+Mantener Laravel y todas sus dependencias actualizadas para tener las últimas correcciones de seguridad y proteger la aplicación contra vulnerabilidades conocidas ([ver documentación de ASAWL - Componentes vulnerables y desactualizados](./componentes-vulnerables-desactualizados.md)).
 
 ### Auditoría y registro de actividad
 
-Mantener un registro de las acciones realizadas por los usuarios, especialmente aquellas que involucran datos sensibles. Esto ayudará a detectar y responder a posibles incidentes de seguridad ([ver documentación oficial de ASAWL - Registro y monitoreo insuficiente]()).
+Mantener un registro de las acciones realizadas por los usuarios, especialmente aquellas que involucran datos sensibles. Esto ayudará a detectar y responder a posibles incidentes de seguridad ([ver documentación oficial de ASAWL - Registro y monitoreo insuficiente](./registro-monitoreo-insuficiente.md)).
 
 Adicional se detallan algunas recomendaciones de seguridad en exposición de datos sensibles:
 

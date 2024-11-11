@@ -19,8 +19,8 @@ Laravel, con su potencia y popularidad, facilita el desarrollo ágil de aplicaci
 
 ## Bootcamp de seguridad con ASAWL
 
-- [ASAWL Bootcamp (En construcción)](https://github.com/Laravel-ASAWL/ASAWL-Bootcamp)
+- [ASAWL Bootcamp (EN CONTRUCCIÓN)](https://github.com/Laravel-ASAWL/ASAWL-Bootcamp)
 
 ## Desarrollo de aplicacion web con ASAWL
 
-- [App de Ejemplo (En construcción)](https://github.com/Laravel-ASAWL/app-ejemplo)
+- [App de Ejemplo (EN CONSTRUCCIÓN)](https://github.com/Laravel-ASAWL/app-ejemplo)

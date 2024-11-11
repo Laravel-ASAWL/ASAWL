@@ -38,7 +38,7 @@ Laravel facilita la autenticación mediante el uso de varios métodos:
 
 #### Uso de Scaffolding
 
-Laravel proporciona un comando para generar rápidamente todo el código necesario para la autenticación básica, sin necesidad de instalar otro paquete externo ([ver documentación oficial de Laravel UI](https://github.com/laravel/ui)):
+Laravel proporciona un comando para generar rápidamente todo el código necesario para la autenticación básica, sin necesidad de instalar otro paquete externo ([ver documentación oficial Laravel UI](https://github.com/laravel/ui)):
 
 ```bash
 
@@ -52,7 +52,7 @@ los comandos anteriores instalan el paquete `laravel/ui` y crea: vistas, control
 
 #### Middleware Auth
 
-Se puede proteger rutas específicas utilizando el Middleware Auth ([ver documentación oficial de Laravel Middleware](https://laravel.com/docs/11.x/middleware)):
+Se puede proteger rutas específicas utilizando el Middleware Auth ([ver documentación oficial Laravel Middleware](https://laravel.com/docs/11.x/middleware)):
 
 ```php
 
@@ -70,7 +70,7 @@ Esto asegurará que solo los usuarios autenticados puedan acceder a la ruta /das
 
 #### Función Auth
 
-Uso de funciones para validar la autenticación ([ver documentación oficial de Laravel Autenticación](https://laravel.com/docs/11.x/authentication)):
+Uso de funciones para validar la autenticación ([ver documentación oficial Laravel Autenticación](https://laravel.com/docs/11.x/authentication)):
 
 ```php
 
@@ -99,7 +99,7 @@ Laravel ofrece dos mecanismos principales para la autorización:
 
 #### Gates
 
-Son funciones simples que determinan si un usuario puede realizar una acción específica ([ver documentación oficial de Laravel Authorization - Gates](https://laravel.com/docs/11.x/authorization#gates)).
+Son funciones simples que determinan si un usuario puede realizar una acción específica ([ver documentación oficial Laravel Authorization - Gates](https://laravel.com/docs/11.x/authorization#gates)).
 
 ```php
 
@@ -119,7 +119,7 @@ public function boot(): void
 
 #### Policies
 
-Son clases que agrupan lógicamente las autorizaciones relacionadas con un modelo particular ([ver documentación oficial de Laravel Authorization - Creating Policies](https://laravel.com/docs/11.x/authorization#creating-policies)).
+Son clases que agrupan lógicamente las autorizaciones relacionadas con un modelo particular ([ver documentación oficial Laravel Authorization - Creating Policies](https://laravel.com/docs/11.x/authorization#creating-policies)).
 
 ```bash
 
@@ -171,7 +171,7 @@ if ($user->can('update', $post)) {
 
 Adicional se detallan algunas recomendaciones de seguridad en la autenticación y la autorización:
 
-- Implementar autenticación de dos factores mediante Laravel Fortify ([ver documentación oficial de Laravel Fortify](https://laravel.com/docs/11.x/fortify)) para aumentar la seguridad de la aplicación.
-- Considerar utilizar paquetes como Laravel Sanctum ([ver documentación oficial de Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)) y Laravel Passport ([ver documentación oficial de Laravel Passport](https://laravel.com/docs/11.x/passport)) para autenticación de APIs.
+- Implementar autenticación de dos factores mediante Laravel Fortify ([ver documentación oficial Laravel Fortify](https://laravel.com/docs/11.x/fortify)) para aumentar la seguridad de la aplicación.
+- Considerar utilizar paquetes como Laravel Sanctum ([ver documentación oficial Laravel Sanctum](https://laravel.com/docs/11.x/sanctum)) y Laravel Passport ([ver documentación oficial Laravel Passport](https://laravel.com/docs/11.x/passport)) para autenticación de APIs.
 - Personalizar las vistas y controladores generados por el scaffolding para adaptarlos a las necesidades específicas.
 - Utilizar roles y permisos para una autorización más granular y flexible.
