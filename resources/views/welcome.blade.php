@@ -84,7 +84,7 @@
                             </div>
                         </a>
 
-                        <a
+                        <div
                             href="https://laracasts.com"
                             class="flex items-start gap-4 rounded-lg bg-white p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300 hover:text-black/70 hover:ring-black/20 focus:outline-none focus-visible:ring-[#FF2D20] lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]"
                         >
@@ -96,12 +96,37 @@
                                 <h2 class="text-xl font-semibold text-black dark:text-white">Vulnerabilidades de seguridad más frecuentes en Laravel</h2>
 
                                 <p class="mt-4 text-sm/relaxed">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
+                                    Inyección SQL (SQLi)
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Cross-Site Scripting (XSS)
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Fallos de validación de entrada
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Autenticación y autorización insegura
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Cross-Site Request Forgery (CSRF)
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Exposición de datos sensibles
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Configuración de Seguridad Incorrecta
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Diseño inseguro
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Componentes vulnerables y desactualizado
+                                </p>
+                                <p class="mt-4 text-sm/relaxed">
+                                    Registro y monitoreo insuficiente
                                 </p>
                             </div>
-
-                            <svg class="size-6 shrink-0 self-center stroke-[#FF2D20]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"/></svg>
-                        </a>
+                        </div>
 
                         <a
                             href="https://laravel-news.com"
