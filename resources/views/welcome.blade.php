@@ -78,36 +78,38 @@
                             <div class="pt-3 sm:pt-5">
                                 <h2 class="text-xl font-semibold text-black dark:text-white">Vulnerabilidades de seguridad más frecuentes en Laravel</h2>
 
-                                <p class="mt-4 text-sm/relaxed">
-                                    Inyección SQL (SQLi)
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Cross-Site Scripting (XSS)
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Fallos de validación de entrada
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Autenticación y autorización insegura
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Cross-Site Request Forgery (CSRF)
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Exposición de datos sensibles
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Configuración de Seguridad Incorrecta
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Diseño inseguro
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Componentes vulnerables y desactualizado
-                                </p>
-                                <p class="mt-4 text-sm/relaxed">
-                                    Registro y monitoreo insuficiente
-                                </p>
+                                <ol>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">1. Inyección SQL (SQLi)</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">2. Cross-Site Scripting (XSS)</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">3. Fallos de validación de entrada</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">4. Autenticación y autorización insegura</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">5. Cross-Site Request Forgery (CSRF)</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">6. Exposición de datos sensibles</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">7. Configuración de Seguridad Incorrecta</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">8. Diseño inseguro</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">9. Componentes vulnerables y desactualizado</a>
+                                    </li>
+                                    <li class="mt-4 text-sm/relaxed">
+                                        <a href="#">10. Registro y monitoreo insuficiente</a>
+                                    </li>
+                                </ol> 
                             </div>
                         </div>
                     </div>
