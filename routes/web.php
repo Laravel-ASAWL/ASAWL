@@ -7,7 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', 'SheetsController@index')
+Route::get('/', [App\Http\Controllers\SheetsController::class, 'index'])
     ->where('sheet', '(.*)');
 
 //********************************************//
