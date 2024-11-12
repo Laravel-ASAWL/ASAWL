@@ -90,10 +90,14 @@
                                     </div>
 
                                     <div class="pt-3 sm:pt-5 lg:pt-0">
-                                        <h2 class="text-xl font-semibold text-black dark:text-white">Documentation</h2>
+                                        <h2 class="text-xl font-semibold text-black dark:text-white">Metodología de Análisis de Seguridad de Aplicaciones Web Laravel (ASAWL)</h2>
 
                                         <p class="mt-4 text-sm/relaxed">
-                                            Laravel has wonderful documentation covering every aspect of the framework. Whether you are a newcomer or have prior experience with Laravel, we recommend reading our documentation from beginning to end.
+                                            En el marco de análisis de seguridad para aplicaciones web, desarrollado en el contexto de este repositorio, ASAWL es una metodología diseñada para evaluar y mejorar la seguridad de aplicaciones web construidas con Laravel. Su enfoque principal radica en la identificación y mitigación de vulnerabilidades mediante la aplicación de las mejores prácticas de seguridad específicas para este entorno.
+                                        </p>
+                                        
+                                        <p class="mt-4 text-sm/relaxed">
+                                            Laravel, con su potencia y popularidad, facilita el desarrollo ágil de aplicaciones web robustas mediante PHP. Sin embargo, como cualquier herramienta, su uso no garantiza automáticamente la seguridad. ASAWL surge de la necesidad de abordar esta realidad, proporcionando un marco estructurado y adaptado para evaluar su seguridad.
                                         </p>
                                     </div>
                                 </div>
