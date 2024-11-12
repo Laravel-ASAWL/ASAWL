@@ -10,7 +10,7 @@
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",
         "ntanduy/cloudflare-d1-database": "^0.1.0",
-        "spatie/sheets": "^1.12"
+        "spatie/laravel-markdown": "^2.6"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

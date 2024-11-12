@@ -7,9 +7,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [App\Http\Controllers\SheetsController::class, 'index'])
-    ->where('sheet', '(.*)');
-
 //********************************************//
 // Mitigación de autenticación y autorización //
 //********************************************//
