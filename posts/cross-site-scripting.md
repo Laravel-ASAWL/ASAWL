@@ -1,3 +1,6 @@
+---
+title: Cross-Site Scripting (XSS)
+---
 # Cross-Site Scripting (XSS)
 
 ## ¿Qué es el Cross-site scripting?

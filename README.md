@@ -6,16 +6,16 @@ Laravel, con su potencia y popularidad, facilita el desarrollo ágil de aplicaci
 
 ## Vulnerabilidades de seguridad más frecuentes en Laravel
 
-1. [Inyección SQL (SQLi)](./docs/inyeccion-sql.md)
-2. [Cross-Site Scripting (XSS)](./docs/cross-site-scripting.md)
-3. [Fallos de validación de entrada](./docs/fallos-validacion-de-entrada.md)
-4. [Autenticación y autorización insegura](./docs/autenticacion-autorizacion-insegura.md)
-5. [Cross-Site Request Forgery (CSRF)](./docs/cross-site-request-forgery.md)
-6. [Exposición de datos sensibles](./docs/explotacion-datos-sensibles.md)
-7. [Configuración de Seguridad Incorrecta](./docs/configuracion-seguridad-incorecta.md)
-8. [Diseño inseguro](./docs/diseno-inseguro.md)
-9. [Componentes vulnerables y desactualizado](./docs/componentes-vulnerables-desactualizados.md)
-10. [Registro y monitoreo insuficiente](./docs/registro-monitoreo-insuficiente.md)
+1. [Inyección SQL (SQLi)](./posts/inyeccion-sql.md)
+2. [Cross-Site Scripting (XSS)](./posts/cross-site-scripting.md)
+3. [Fallos de validación de entrada](./posts/fallos-validacion-de-entrada.md)
+4. [Autenticación y autorización insegura](./posts/autenticacion-autorizacion-insegura.md)
+5. [Cross-Site Request Forgery (CSRF)](./posts/cross-site-request-forgery.md)
+6. [Exposición de datos sensibles](./posts/explotacion-datos-sensibles.md)
+7. [Configuración de Seguridad Incorrecta](./posts/configuracion-seguridad-incorecta.md)
+8. [Diseño inseguro](./posts/diseno-inseguro.md)
+9. [Componentes vulnerables y desactualizado](./posts/componentes-vulnerables-desactualizados.md)
+10. [Registro y monitoreo insuficiente](./posts/registro-monitoreo-insuficiente.md)
 
 ## Bootcamp de seguridad con ASAWL
 

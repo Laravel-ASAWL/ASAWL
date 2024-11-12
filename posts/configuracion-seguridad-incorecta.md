@@ -1,3 +1,6 @@
+---
+title: Configuración de Seguridad Incorrecta
+---
 # Configuración de Seguridad Incorrecta
 
 ## ¿Qué es la configuración de seguridad incorrecta?

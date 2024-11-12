@@ -1,3 +1,6 @@
+---
+title: Inyección SQL (SQLi)
+---
 # Inyección SQL (SQLi)
 
 ## ¿Qué es la inyección SQL?
