@@ -18,9 +18,9 @@ La inyección SQL en Laravel es una vulnerabilidad de seguridad que ocurre cuand
 
 ### Acceso a datos sin credenciales:
 
-1. Entrada Maliciosa: Un atacante introduce datos maliciosos en un campo de entrada de la aplicación web (formularios, URL, etc.). Por ejemplo, en la autentificación de una aplicación web en lugar del correo electrónico o la contraseña, ingresan una sentencia SQL maliciosa: `' OR 1=1 --`
+1. Entrada Maliciosa: Un atacante introduce datos maliciosos en un campo de entrada de la aplicación web (formularios, URL, etc.). Por ejemplo, en la autentificación de una aplicación web en lugar del correo electrónico o la contraseña, ingresan una sentencia SQL maliciosa: `' OR 1=1 --`.
 
-2. Consulta Vulnerable: Si el código no está protegido, esta entrada maliciosa se incorpora directamente a la consulta SQL. En el ejemplo anterior, la consulta podría transformarse en algo como: `SELECT * FROM users WHERE email = 'asawl@mail.com' and password '' OR 1=1 --`
+2. Consulta Vulnerable: Si el código no está protegido, esta entrada maliciosa se incorpora directamente a la consulta SQL. En el ejemplo anterior, la consulta podría transformarse en algo como: `SELECT * FROM users WHERE email = 'asawl@mail.com' and password '' OR 1=1 --`.
 
 3. Ejecución del Código Malicioso: La base de datos interpreta el código SQL modificado. En este caso, la consulta para buscar usuarios mediante la condición de la coincidencia del correo electrónico y la contraseña, la condición `OR 1=1` siempre es verdadero, lo que significa que la condición se cumple para todos los registros. Además, `--` comenta el resto de la consulta, evitando la verificación de la contraseña.
 
@@ -28,9 +28,9 @@ La inyección SQL en Laravel es una vulnerabilidad de seguridad que ocurre cuand
 
 ### Acceso a datos con credenciales:
 
-1. Entrada Maliciosa: Un atacante introduce datos maliciosos en un campo de entrada de la aplicación web (formularios, URL, etc.), en lugar de proporcionar un ID de producto válido, el atacante introduce una consulta SQL maliciosa que aprovecha la vulnerabilidad de la aplicación: `1 UNION SELECT email, password FROM users --`
+1. Entrada Maliciosa: Un atacante introduce datos maliciosos en un campo de entrada de la aplicación web (formularios, URL, etc.), en lugar de proporcionar un ID de producto válido, el atacante introduce una consulta SQL maliciosa que aprovecha la vulnerabilidad de la aplicación: `1 UNION SELECT email, password FROM users --`.
 
-2. Consulta Vulnerable: Si la aplicación no valida ni sanitiza correctamente la entrada del usuario, esta entrada maliciosa se incorpora directamente en la consulta SQL que se envía a la base de datos. La consulta original que muestra un producto de acuerdo el identificador ingresado, debería ser: `SELECT name, description FROM products WHERE id = 1`; y que se transforma en: `SELECT name, description FROM products WHERE id = 1 UNION SELECT email, password FROM users --`
+2. Consulta Vulnerable: Si la aplicación no valida ni sanitiza correctamente la entrada del usuario, esta entrada maliciosa se incorpora directamente en la consulta SQL que se envía a la base de datos. La consulta original que muestra un producto de acuerdo el identificador ingresado, debería ser: `SELECT name, description FROM products WHERE id = 1`; y que se transforma en: `SELECT name, description FROM products WHERE id = 1 UNION SELECT email, password FROM users --`.
 
 3. Ejecución del Código Malicioso: La base de datos ejecuta la consulta SQL modificada. La primera parte de la consulta `SELECT name, description FROM productos WHERE id = 1` se ejecuta normalmente, pero debido al operador `UNION`, se combinan los resultados con los de la segunda consulta `SELECT email, password FROM users`. El comentario `--` anula el resto de la consulta original, evitando errores de sintaxis.
 
@@ -38,9 +38,9 @@ La inyección SQL en Laravel es una vulnerabilidad de seguridad que ocurre cuand
 
 ### Eliminar datos maliciosamente:
 
-1. Entrada Maliciosa: Un atacante introduce datos maliciosos en un campo de entrada de la aplicación web (formularios, URL, etc.). Por ejemplo, en lugar de un correo electrónico válido, ingresan algo como: `fake@mail.com'; DROP TABLE users --`
+1. Entrada Maliciosa: Un atacante introduce datos maliciosos en un campo de entrada de la aplicación web (formularios, URL, etc.). Por ejemplo, en lugar de un correo electrónico válido, ingresan algo como: `fake@mail.com'; DROP TABLE users --`.
 
-2. Consulta Vulnerable: Si el código no está protegido, esta entrada maliciosa se incorpora directamente a la consulta SQL. En el ejemplo anterior, la consulta podría transformarse en algo como: `SELECT email, password FROM users WHERE email = 'fake@mail.com'; DROP TABLE users --`
+2. Consulta Vulnerable: Si el código no está protegido, esta entrada maliciosa se incorpora directamente a la consulta SQL. En el ejemplo anterior, la consulta podría transformarse en algo como: `SELECT email, password FROM users WHERE email = 'fake@mail.com'; DROP TABLE users --`.
 
 3. Ejecución del Código Malicioso: La base de datos interpreta el código SQL modificado. En este caso, `DROP TABLE users`, lo que significa la tabla users se elimina de la base de datos. Además, `--` comenta el resto de la consulta.
 
@@ -59,7 +59,7 @@ $user = DB::select("SELECT email, password FROM users WHERE email = '$request->e
 
 La mitigación de la inyección SQL en Laravel se la realiza mediante:
 
-### Validación de Entradas
+**1. Validación de Entradas**
 
 Validar rigurosamente todas las entradas del usuario para asegurar que cumplan con los formatos y tipos de datos esperados. Laravel ofrece una variedad de reglas de validación ([ver la documentación oficial de Laravel Validation](https://laravel.com/docs/11.x/validation)).
 
@@ -73,7 +73,7 @@ $validated = $request->validate([
 
 ```
 
-### Sanitización de Entradas
+**2. Sanitización de Entradas**
 
 Si se necesita incluir entradas del usuario directamente en consultas SQL (aunque no es recomendable), se debe utilizar las funciones de escape de Laravel para sanitizar los datos y evitar que se interpreten como código SQL ([ver documentación oficial de Laravel Strings - Method e()](https://laravel.com/docs/11.x/strings#method-e)).
 
@@ -105,7 +105,7 @@ $password = strip_tags(trim(e($validated['password'])));
 
 ```
 
-### Uso de Eloquent
+**3. Uso de Eloquent**
 
 se debe utilizar Eloquent, el ORM de Laravel como constructor para parametrizar las consultas, Eloquent ayuda a evitar que las entradas maliciosas se interpreten como código SQL ([ver documentación oficial de Laravel Eloquent](https://laravel.com/docs/11.x/eloquent)).
 
@@ -140,17 +140,17 @@ Para ilustrar la mitigación de la inyección SQL en Laravel, se puede revisar e
 
 public function login(Request $request)
 {
-    // Validación de entradas
+    // 1. Validación de entradas
     $validated = $request->validate([
         'email' => 'required|email',
         'password' => 'required',
     ]);
 
-    // Sanitización de entradas
+    // 2. Sanitización de entradas
     $email = strip_tags(trim(e($validated['email'])));
     $password = strip_tags(trim(e($validated['password'])));
 
-    // Uso de Eloquent
+    // 3. Uso de Eloquent
     $user = User::where('email', $email)->first();
 
     ...

@@ -58,10 +58,10 @@ Comment::create([
 
 ```php
 
-// Mostrar datos sanitizados
 @foreach ($comments as $comment)
 <article class="...">
     <footer>...</footer>
+    {{-- Mostrar datos sanitizados --}}
     <p class="...">{{ e($comment->comment) }}</p>
 </article>
 @endforeach
@@ -74,11 +74,11 @@ Comment::create([
 
 ```bash
 
-# Creación del middleware de seguridad
+# Creación del Middleware de seguridad
 php artisan make:middleware SecurityHeadersMiddleware
 
 ```
-- Configuración de cabeceras HTTP seguras ([ver archivo de definición del Middleware SecurityHeadersMiddleware](./app/Http/Middleware/SecurityHeadersMiddleware.php)).
+- Configuración de cabeceras HTTP seguras ([ver archivo Middleware SecurityHeadersMiddleware](./app/Http/Middleware/SecurityHeadersMiddleware.php)).
 
 ```php
 
