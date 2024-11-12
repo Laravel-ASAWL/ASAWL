@@ -6,11 +6,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "graham-campbell/markdown": "^15.2",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "laravel/ui": "^4.5",
-        "ntanduy/cloudflare-d1-database": "^0.1.0",
-        "spatie/laravel-markdown": "^2.6"
+        "ntanduy/cloudflare-d1-database": "^0.1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

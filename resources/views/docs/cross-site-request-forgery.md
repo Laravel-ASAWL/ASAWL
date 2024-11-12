@@ -1,6 +1,3 @@
----
-title: Cross-Site Request Forgery (CSRF)
----
 # Cross-Site Request Forgery (CSRF)
 
 ## ¿Qué es Cross-Site Request Forgery?

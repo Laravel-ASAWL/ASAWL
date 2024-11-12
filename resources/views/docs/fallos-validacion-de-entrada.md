@@ -1,6 +1,3 @@
----
-title: Fallos de validación de entrada
----
 # Fallos de validación de entrada
 
 ## ¿Qué es el fallo de validación de entrada?

@@ -18,8 +18,8 @@ return Application::configure(basePath: dirname(__DIR__))
         // Excluir validación CSRF para las rutas
         $middleware->validateCsrfTokens(except: [
             'stripe/*',
-            'http://example.com/foo/bar',
-            'http://example.com/foo/*',
+            'https://*.cloudworkstations.dev/login',
+            'https://*.cloudworkstations.dev/register',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

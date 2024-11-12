@@ -1,6 +1,3 @@
----
-title: Exposición de datos sensibles
----
 # Exposición de datos sensibles
 
 ## ¿Qué es la exposición de datos sensibles?

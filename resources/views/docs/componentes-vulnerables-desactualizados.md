@@ -1,0 +1,1 @@
+# Componentes vulnerables y desactualizados

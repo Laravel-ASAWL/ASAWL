@@ -1,6 +1,3 @@
----
-title: Autenticación y autorización insegura
----
 # Autenticación y autorización insegura
 
 ## ¿Qué es la autenticación y autorización insegura?
