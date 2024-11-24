@@ -1,4 +1,4 @@
-# Componentes vulnerables y desactualizados
+# Componentes Vulnerables y Desactualizados
 
 ## ¿Qué son los Componentes Vulnerables y Desactualizados?
 

@@ -1,4 +1,4 @@
-# Fallos de validación de entrada
+# Fallos de Validación de Entrada
 
 ## ¿Qué es el fallo de validación de entrada?
 

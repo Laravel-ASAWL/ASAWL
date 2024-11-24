@@ -1,4 +1,4 @@
-# Diseño inseguro
+# Diseño Inseguro
 
 ## ¿Qué es el diseño inseguro?
 
@@ -32,7 +32,7 @@ Laravel utiliza el patrón Modelo-Vista-Controlador (MVC), pero no impone una es
 - Repositorio (Repository): Implementa la interfaz y proporciona métodos para acceder y manipular los datos del modelo.
 - Modelo (Model): Representa la estructura de los datos y, a menudo, interactúa directamente con la base de datos a través de Eloquent ORM en Laravel.
 
-![Patrón Repository en Laravel](../../images/patron-repository.png)
+![Patrón Repository en Laravel](../images/patron-repository.png)
 
 Su flujo de trabajo se establece de la siguiente manera:
 

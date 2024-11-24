@@ -1,4 +1,4 @@
-# Exposición de datos sensibles
+# Exposición de Datos Sensibles
 
 ## ¿Qué es la exposición de datos sensibles?
 
