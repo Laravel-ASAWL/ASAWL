@@ -41,6 +41,7 @@ Laravel facilita la autenticación mediante el uso de varios métodos:
 Laravel proporciona un comando para generar rápidamente todo el código necesario para la autenticación básica, sin necesidad de instalar otro paquete externo ([ver documentación oficial Laravel UI](https://github.com/laravel/ui)):
 
 ```bash
+# terminal
 
 # Instalar Laravel UI
 composer require laravel/ui
@@ -55,6 +56,7 @@ los comandos anteriores instalan el paquete `laravel/ui` y crea: vistas, control
 Se puede proteger rutas específicas utilizando el Middleware Auth ([ver documentación oficial Laravel Middleware](https://laravel.com/docs/11.x/middleware)):
 
 ```php
+# web.php
 
 use Illuminate\Support\Facades\Route;
 
@@ -73,6 +75,7 @@ Esto asegurará que solo los usuarios autenticados puedan acceder a la ruta /das
 Uso de funciones para validar la autenticación ([ver documentación oficial Laravel Autenticación](https://laravel.com/docs/11.x/authentication)):
 
 ```php
+# LoginController.php
 
 use Illuminate\Support\Facades\Auth;
 
@@ -87,7 +90,7 @@ if(Auth::check()) {
   // Función para obtener el ID del usuario autenticado
   $id = Auth::id();
 
-  // Función para obtener el usuario autenticado
+  // Función para cerrar sesión del usuario autenticado
   Auth::logout();
 }
 
@@ -102,11 +105,14 @@ Laravel ofrece dos mecanismos principales para la autorización:
 Son funciones simples que determinan si un usuario puede realizar una acción específica ([ver documentación oficial Laravel Authorization - Gates](https://laravel.com/docs/11.x/authorization#gates)).
 
 ```php
+# AppServiceProvider.php
 
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
- 
+
+...
+
 public function boot(): void
 {
   // Protección de acceso mediante Gate de autorización
@@ -131,7 +137,8 @@ php artisan make:policy PostPolicy
 El comando anterior genera el archivo app\Policies\PostPolicy.php en la carpeta Policies. ([ver archivo PostPolicy.php](./app/Policies/PostPolicy.php)).
 
 ```php
- 
+# PostPolicy.php
+
 namespace App\Policies;
  
 use App\Models\Post;
@@ -151,6 +158,7 @@ class PostPolicy
 Se puede utilizar Gate y Policy en los controladores y vistas para controlar el acceso a funcionalidades:
 
 ```php
+# UserControlle.php
 
 // Utilizando Gate en el Controlador
 if(Gate::allows('update-post', $user, $post)) {
@@ -161,6 +169,11 @@ if(Gate::allows('update-post', $user, $post)) {
 if ($user->can('update', $post)) {
   // ...
 }
+
+```
+
+```php
+# user.blade.php
 
 // Utilizando Policy en la Vista
 @can()
