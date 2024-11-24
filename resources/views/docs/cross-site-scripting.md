@@ -35,6 +35,7 @@ Laravel proporciona algunos métodos fundamentales para mitigar el XSS, el prime
 - Uso de Eloquent en la creación de registros ([ver documentación oficial de Laravel Eloquent](https://laravel.com/docs/11.x/eloquent)).
 
 ```php
+# CommentController.php
 
 // Validación de entradas
 $validated = $request->validate([
@@ -57,6 +58,7 @@ Comment::create([
 - Utilización de directivas {{ $variable }} para mostrar los datos en la vista ([ver documentación oficial de Laravel Blade - Displaying Data](https://laravel.com/docs/11.x/blade#displaying-data)).
 
 ```php
+# comment.blade.php
 
 @foreach ($comments as $comment)
 <article class="...">
@@ -73,6 +75,7 @@ Comment::create([
 - Creación de un middleware de seguridad ([ver documentación oficial de Laravel Middleware](https://laravel.com/docs/11.x/middleware)).
 
 ```bash
+# terminal
 
 # Creación del Middleware de seguridad
 php artisan make:middleware SecurityHeadersMiddleware
@@ -81,6 +84,7 @@ php artisan make:middleware SecurityHeadersMiddleware
 - Configuración de cabeceras HTTP seguras ([ver archivo Middleware SecurityHeadersMiddleware](./app/Http/Middleware/SecurityHeadersMiddleware.php)).
 
 ```php
+# SecurityHeadersMiddleware.php
 
 namespace App\Http\Middleware;
 
@@ -116,6 +120,7 @@ class SecurityHeadersMiddleware
 - Registro del middleware en la configuración de Laravel ([ver archivo de configuración de Laravel](./bootstrap/app.php)).
 
 ```php
+# app.php
 
 use App\Http\Middleware\SecurityHeadersMiddleware;
 
