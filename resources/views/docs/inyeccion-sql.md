@@ -51,6 +51,7 @@ La inyección SQL en Laravel es una vulnerabilidad de seguridad que ocurre cuand
 Laravel proporciona herramientas para proteger las aplicaciones web contra inyecciones SQL, pero sin embargo puede ser vulnerable.
 
 ```php
+# LoginController.php
 
 // Consulta vulnerable a inyección SQL
 $user = DB::select("SELECT email, password FROM users WHERE email = '$request->email'");
@@ -64,6 +65,7 @@ La mitigación de la inyección SQL en Laravel se la realiza mediante:
 Validar rigurosamente todas las entradas del usuario para asegurar que cumplan con los formatos y tipos de datos esperados. Laravel ofrece una variedad de reglas de validación ([ver la documentación oficial de Laravel Validation](https://laravel.com/docs/11.x/validation)).
 
 ```php
+# LoginController.php
 
 // Validación de entradas
 $validated = $request->validate([
@@ -78,6 +80,7 @@ $validated = $request->validate([
 Si se necesita incluir entradas del usuario directamente en consultas SQL (aunque no es recomendable), se debe utilizar las funciones de escape de Laravel para sanitizar los datos y evitar que se interpreten como código SQL ([ver documentación oficial de Laravel Strings - Method e()](https://laravel.com/docs/11.x/strings#method-e)).
 
 ```php
+# LoginController.php
 
 // Sanitización de entradas mediante la función e()
 $email = e($validated['email']);
@@ -88,6 +91,7 @@ $password = e($validated['password']);
 Se puede utilizar la función trim() para eliminar espacios en blanco ([ver documentación oficial de PHP Function trim()](https://www.php.net/manual/en/function.trim.php)).
 
 ```php
+# LoginController.php
 
 // Sanitización de entradas mediante la función trim()
 $email = trim(e($validated['email']));
@@ -98,6 +102,7 @@ $password = trim(e($validated['password']));
 Y adicional se puede utilizar la función strip_tags() para eliminar tags HTML ([ver documentación oficial de PHP Function strip_tags()](https://www.php.net/manual/es/function.strip-tags.php)).
 
 ```php
+# LoginController.php
 
 // Sanitización de entradas mediante strip_tags()
 $email = strip_tags(trim(e($validated['email'])));
@@ -110,6 +115,7 @@ $password = strip_tags(trim(e($validated['password'])));
 se debe utilizar Eloquent, el ORM de Laravel como constructor para parametrizar las consultas, Eloquent ayuda a evitar que las entradas maliciosas se interpreten como código SQL ([ver documentación oficial de Laravel Eloquent](https://laravel.com/docs/11.x/eloquent)).
 
 ```php
+# LoginController.php
 
 // Uso de Eloquent ORM
 $user = User::where('email', $email)->first();
@@ -119,6 +125,7 @@ $user = User::where('email', $email)->first();
 Si necesitas más flexibilidad que Eloquent, usa el Query Builder de Laravel, que también escapa los parámetros de forma segura ([ver documentación oficial de Laravel Queries](https://laravel.com/docs/11.x/queries)).
 
 ```php
+# LoginController.php
 
 // Uso de Query Builder
 $user = DB::table('users')->where('email', $email)->get();
@@ -128,6 +135,7 @@ $user = DB::table('users')->where('email', $email)->get();
 Si debes construir consultas SQL dinámicas, utiliza parámetros con nombre o marcadores de posición (?) para evitar que el código malicioso se interprete como parte de la consulta, estas consultas se denominan consultas parametrizadas ([ver documentación oficial de Laravel Database](https://laravel.com/docs/11.x/database#running-a-select-query)).
 
 ```php
+# LoginController.php
 
 // Uso de consultas parametrizadas
 $user = DB::select('SELECT email, password FROM users WHERE email = ?', $email);
@@ -137,6 +145,7 @@ $user = DB::select('SELECT email, password FROM users WHERE email = ?', $email);
 Para ilustrar la mitigación de la inyección SQL en Laravel, se puede revisar el código de la función login() de un controlador utilizado para el proceso de inicio de sesión de una aplicación web:
 
 ```php
+# LoginController.php
 
 public function login(Request $request)
 {
