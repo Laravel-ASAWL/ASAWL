@@ -31,6 +31,7 @@ Laravel proporciona herramientas y convenciones para configurar una aplicación 
 En el archivo `.env` el modo de depuración `APP_DEBUG` debe estar desactivado en el entorno de producción. Esto evitará que se muestren mensajes de error detallados que podrían revelar información sensible sobre la aplicación.
 
 ```env
+# .env
 
 APP_DEBUG=false
 
@@ -41,6 +42,7 @@ APP_DEBUG=false
 Restringir el acceso a la carpeta storage configurando los permisos de archivo adecuados para evitar modificaciones no autorizadas.
 
 ```bash
+# terminal
 
 # configuración de la carpeta storage
 chmod -R 755 storage
@@ -52,6 +54,7 @@ chmod -R 755 storage
 La correcta configuración del servidor web (Apache, Nginx, etc.) incluye desactivar directorios de listado, configurar encabezados de seguridad HTTP y utilizar HTTPS para cifrar el tráfico.
 
 ```htaccess
+# .htaccess
 
 # Configuración de Apache
 <IfModule mod_negotiation.c>
@@ -61,6 +64,7 @@ La correcta configuración del servidor web (Apache, Nginx, etc.) incluye desact
 ```
 
 ```php
+# SecurityHeadersMiddleware.php
 
 namespace App\Http\Middleware;
 
@@ -91,6 +95,7 @@ class SecurityHeadersMiddleware
 Laravel facilita la configuración de CORS a través del middleware CORS ([ver documentación oficial Laravel Routing - CORS](https://laravel.com/docs/11.x/routing#cors)). Se puede personalizar el comportamiento en el archivo `config/cors.php`.
 
 ```bash
+# terminal
 
 # Configuración de CORS
 php artisan config:publish cors
@@ -109,6 +114,7 @@ La configuración de seguridad de CORS se define de la siguiente forma:
 - **supports_credentials**: Habilita o deshabilita el envío de credenciales (cookies, encabezados de autenticación) en solicitudes Cross-Origin.
 
 ```php
+# cors.php
 
 // Configuración de CORS
 return [
@@ -131,6 +137,7 @@ Para más detalles se puede consultar el sitio web oficial de Mozilla en inglés
 Laravel dispone de un comando para optimizar la configuración y algunos componentes ([ver documentación oficial de Laravel Deployment - Optimization](https://laravel.com/docs/11.x/deployment#optimization)).
 
 ```bash
+# terminal
 
 # Optimización de configuración
 php artisan optimize
