@@ -55,7 +55,7 @@ php artisan migrate
 
 ```
 
-![Laravel Telescope - Logs]('/../../../images/laravel-telescope.png')
+![Laravel Telescope - Logs](../../../images/laravel-telescope.png)
 
 - Protección mediante Web Application Firewall WAF:
 
