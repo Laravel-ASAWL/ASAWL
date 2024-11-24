@@ -37,6 +37,7 @@ Laravel incluye el middleware VerifyCsrfToken por defecto, que verifica automát
 En las vistas Blade, se utiliza la directiva @csrf dentro de los formularios para generar el campo oculto con el token CSRF ([ver documentación oficial de Laravel CSRF Protection](https://laravel.com/docs/11.x/csrf#preventing-csrf-requests)):
 
 ```php
+# login.blade.php
 
 <form method="POST">
     {{-- Uso de la protección CSRF en la vista --}}
@@ -52,6 +53,7 @@ En las vistas Blade, se utiliza la directiva @csrf dentro de los formularios par
 Si se necesita validar el token CSRF manualmente (por ejemplo, en una solicitud AJAX), se puede utilizar el método $request->validate() o el facade Validator:
 
 ```php
+# web php
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -70,6 +72,7 @@ Route::post('/profile', function(Request $request){
 En algunos casos, es posible excluir ciertas rutas de la protección CSRF (por ejemplo, para Webhooks o APIs externas), registrando la exclusión de los patrones de ruta en el configuración de los middleware de Laravel ([ver archivo de configuración de Laravel](./bootstrap/app.php))
 
 ```php
+# app.php
 
 use App\Http\Middleware\SecurityHeadersMiddleware;
 use Illuminate\Foundation\Application;
