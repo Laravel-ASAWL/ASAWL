@@ -34,10 +34,15 @@ Laravel proporciona varias herramientas y prácticas recomendadas para ayudar a 
 Utilizar el sistema de cifrado de Laravel para proteger datos sensibles en reposo. Laravel utiliza algoritmos de cifrado fuertes y seguros para proteger los datos mediante el facade Crypt ([ver la documentación oficial de Laravel Encryption](https://laravel.com/docs/11.x/encryption)).
 
 ```php
+# SecurityController.php
+
 use Illuminate\Support\Facades\Crypt;
+
+...
 
 $encryptedData = Crypt::encryptString($sensitiveData);
 $decryptedData = Crypt::decryptString($encryptedData);
+
 ```
 
 ### Hashing de contraseñas
@@ -45,18 +50,25 @@ $decryptedData = Crypt::decryptString($encryptedData);
 Nunca hay que almacenar contraseñas en texto plano. Se debe utilizar el facade Hash de Laravel para almacenar las contraseñas de forma segura ([ver la documentación oficial de Laravel Hash](https://laravel.com/docs/11.x/hashing)).
 
 ```php
+# RegisterController.php
+
 use Illuminate\Support\Facades\Hash;
+
+...
 
 User::create([
     'name' => 'John Doe',
     'email' => 'john-doe@example.com',
     'password' => Hash::make('P@ssword-s3c=r3'), 
 ]);
+
 ```
 
 Mediante el mismo facade Hash se puede realizar la verificación de la contraseña de forma segura.
 
 ```php
+# LoginController.php
+
 use Illuminate\Support\Facades\Hash;
 
 $password = 'P@ssword-s3c=r3';
@@ -65,6 +77,7 @@ $user = User::where('email', 'john-doe@example.com')->first();
 if (Hash::check($password, $user->password)) {
     // La contraseña es correcta, permitir el acceso al usuario
 }
+
 ```
 
 ### Validación y sanitización de entrada
