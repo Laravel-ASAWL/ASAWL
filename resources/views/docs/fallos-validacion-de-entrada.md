@@ -32,6 +32,7 @@ Para aplicar la validación de entrada en Laravel se lo puede hacer mediante los
 Se puede validar la entrada directamente en los controladores utilizando el método validate() del objeto Request ([ver archivo de definición del Controlador UserController](./app/Http/Controllers/UserController.php)):
 
 ```php
+# UserController.php
 
 namespace App\Http\Controllers;
 
@@ -56,7 +57,6 @@ class UserController extends Controller
     ...
 }
 
-
 ```
 
 En el código anterior, se realiza la validación de: `name` obligatorio, de tipo cadena y con una longitud máxima de 255 caracteres. `email` obligatorio, con un formato válido y único en la tabla `users`, y `password` obligatorio, al menos 8 caracteres y coincidir con el campo de confirmación ([ver documentación oficial de Laravel de la validación de entradas](https://laravel.com/docs/11.x/validation)).
@@ -66,6 +66,7 @@ En el código anterior, se realiza la validación de: `name` obligatorio, de tip
 Para una mejor organización y reutilización de la lógica de validación, se debe crear clases Form Request:
 
 ```bash
+# terminal
 
 # Creación de Form Request
 php artisan make:request StoreUserRequest
@@ -75,6 +76,7 @@ php artisan make:request StoreUserRequest
 El comando anterior creará un archivo `app/Http/Requests/StoreUserRequest.php`. Dentro de este archivo, se puede definir las reglas de validación en el método `rules()` ([ver archivo de definición del Form Request StoreUserRequest](./app/Http/Requests/StoreUserRequest.php)):
 
 ```php
+# StoreUserRequest.php
 
 namespace App\Http\Requests;
 
@@ -101,6 +103,7 @@ class StoreUserRequest extends FormRequest
 Previa a la creación y a la configuración de reglas se podrá utilizar el Form Request en el controlador:
 
 ```php
+# UserController.php
 
 namespace App\Http\Controllers;
 
@@ -129,6 +132,7 @@ class UserController extends Controller
 Se recomienda personalizar los mensajes de error de validación en el método `messages()` ([ver archivo de definición del Form Request StoreUserRequest](./app/Http/Requests/StoreUserRequest.php)):
 
 ```php
+# StoreUserRequest.php
 
 namespace App\Http\Requests;
 
