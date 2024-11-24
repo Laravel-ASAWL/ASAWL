@@ -128,6 +128,7 @@ public function boot(): void
 Son clases que agrupan lógicamente las autorizaciones relacionadas con un modelo particular ([ver documentación oficial Laravel Authorization - Creating Policies](https://laravel.com/docs/11.x/authorization#creating-policies)).
 
 ```bash
+# terminal
 
 # Creación de la clase PostPolicy
 php artisan make:policy PostPolicy
