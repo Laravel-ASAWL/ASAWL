@@ -71,6 +71,8 @@ Mediante el mismo facade Hash se puede realizar la verificaciÃ³n de la contraseÃ
 
 use Illuminate\Support\Facades\Hash;
 
+...
+
 $password = 'P@ssword-s3c=r3';
 $user = User::where('email', 'john-doe@example.com')->first();
 
