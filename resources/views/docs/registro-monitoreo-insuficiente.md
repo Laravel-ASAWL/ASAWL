@@ -55,7 +55,7 @@ php artisan migrate
 
 ```
 
-![Laravel Telescope - Logs](../../../images/laravel-telescope.png)
+![Laravel Telescope - Logs](../../images/laravel-telescope.png)
 
 - Protección mediante Web Application Firewall WAF:
 
@@ -107,6 +107,6 @@ Route::any('/firewall/panel/{path?}', function () {
 ```
 En el sitio web de la aplicación web se debe acceder a la ruta firewall/panel mediante las credenciales por defecto usuario: shieldon_user y la contraseña shieldon_pass:
 
-![Shield On Panel]('/../../../images/shielldon.png')
+![Shield On Panel](../../images/shielldon.png)
 
 ShieldOn permite configurar el WAF de manera completa incluyendo notificación de seguridad mediante diferentes Web Services gratuitos, como: Telegram, Line Notify, SMTP, o plataformas de pago, como: Slack, Rocket Chat, etc.
